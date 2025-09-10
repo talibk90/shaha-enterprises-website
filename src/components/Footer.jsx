@@ -61,17 +61,17 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: Phone,
-      text: '+91 98765 43210',
-      href: 'tel:+919876543210'
+      text: '+91 8874820930',
+      href: 'tel:+918874820930'
     },
     {
       icon: Mail,
-      text: 'info@shahaenterprises.com',
-      href: 'mailto:info@shahaenterprises.com'
+      text: 'taufeeqk217@gmail.com',
+      href: 'mailto:taufeeqk217@gmail.com'
     },
     {
       icon: MapPin,
-      text: '123 Design Avenue, Mumbai',
+      text: 'Near Jupiter Hospital, Baner, Pune',
       href: '#contact'
     }
   ]

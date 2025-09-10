@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
-import { Lightbulb, Award, Clock, Palette2 } from 'lucide-react'
+import { Lightbulb, Award, Clock, Palette } from 'lucide-react'
 
 const WhyChooseUs = () => {
   const sectionRef = useRef(null)
@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
       highlights: ['Timely Completion', 'Milestone Tracking', 'Reliable Service']
     },
     {
-      icon: Palette2,
+      icon: Palette,
       title: 'Tailor-Made Designs',
       description: 'Every project is unique, just like our clients. We create bespoke designs that reflect your personal style, preferences, and functional requirements.',
       highlights: ['Custom Solutions', 'Personal Style', 'Unique Designs']

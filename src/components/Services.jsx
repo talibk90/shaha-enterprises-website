@@ -40,7 +40,7 @@ const Services = () => {
         'Space Planning & Layout',
         'Lighting Design'
       ],
-      image: '/api/placeholder/400/300'
+image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
       icon: Building2,
@@ -52,7 +52,7 @@ const Services = () => {
         'Meeting Room Solutions',
         'Technology Integration'
       ],
-      image: '/api/placeholder/400/300'
+      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     },
     {
       icon: Home,
@@ -64,7 +64,7 @@ const Services = () => {
         'Landscape Design',
         'Project Management'
       ],
-      image: '/api/placeholder/400/300'
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
     }
   ]
 
@@ -139,13 +139,14 @@ const Services = () => {
                   </p>
                 </div>
 
-                {/* Image Placeholder */}
+                {/* Service Image */}
                 <div className="px-8 mb-6">
-                  <div className="aspect-video bg-gradient-to-br from-gold-400/10 to-gold-600/5 rounded-xl border border-gold-400/20 flex items-center justify-center overflow-hidden group-hover:border-gold-400/30 transition-all duration-300">
-                    <div className="text-center">
-                      <service.icon className="text-gold-400 mx-auto mb-2" size={40} />
-                      <p className="text-gold-400/70 text-sm font-medium">Service Showcase</p>
-                    </div>
+                  <div className="aspect-video bg-gradient-to-br from-gold-400/10 to-gold-600/5 rounded-xl border border-gold-400/20 overflow-hidden group-hover:border-gold-400/30 transition-all duration-300">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
                 </div>
 

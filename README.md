@@ -130,9 +130,9 @@ The website can be deployed to:
 
 **Shaha Enterprises**
 - **Name**: Arch Taufiq Contractor
-- **Phone**: +91 98765 43210
-- **Email**: info@shahaenterprises.com
-- **Address**: 123 Design Avenue, Mumbai, Maharashtra 400001
+- **Phone**: +91 88748 20930
+- **Email**: taufeeqk217@gmail.com
+- **Address**: Near Jupiter Hospital, Baner, Pune 411027
 
 ## 📄 License
 

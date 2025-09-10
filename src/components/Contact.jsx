@@ -92,20 +92,20 @@ const Contact = () => {
     {
       icon: Phone,
       label: 'Mobile',
-      value: '+91 98765 43210',
+      value: '+91 8874820930',
       subValue: 'Available 9 AM - 6 PM'
     },
     {
       icon: Mail,
       label: 'Email',
-      value: 'info@shahaenterprises.com',
+      value: 'taufeeqk217@gmail.com',
       subValue: 'We respond within 24 hours'
     },
     {
       icon: MapPin,
       label: 'Address',
-      value: '123 Design Avenue, Architecture District',
-      subValue: 'Mumbai, Maharashtra 400001'
+      value: 'Near Jupiter Hospital, Baner',
+      subValue: 'Pune 411027'
     }
   ]
 

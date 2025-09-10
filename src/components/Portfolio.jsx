@@ -41,15 +41,15 @@ const Portfolio = () => {
       title: 'Luxury Villa Interior',
       category: 'interior',
       description: 'Complete interior transformation of a modern villa with contemporary aesthetics and luxury finishes.',
-      image: '/api/placeholder/600/400',
+image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
       tags: ['Interior Design', 'Luxury', 'Modern']
     },
     {
       id: 2,
       title: 'Corporate Office Space',
       category: 'office',
-      description: 'Modern corporate office design focusing on productivity and employee wellbeing.',
-      image: '/api/placeholder/600/400',
+description: 'Modern corporate office design focusing on productivity and employee wellbeing.',
+      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
       tags: ['Office Design', 'Corporate', 'Modern']
     },
     {
@@ -57,7 +57,7 @@ const Portfolio = () => {
       title: 'Custom Bungalow',
       category: 'bungalow',
       description: 'Architectural design and construction of a custom bungalow with traditional and modern elements.',
-      image: '/api/placeholder/600/400',
+      image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
       tags: ['Architecture', 'Residential', 'Custom']
     },
     {
@@ -65,7 +65,7 @@ const Portfolio = () => {
       title: 'Penthouse Interior',
       category: 'interior',
       description: 'Sophisticated penthouse interior design with panoramic city views and premium materials.',
-      image: '/api/placeholder/600/400',
+      image: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
       tags: ['Interior Design', 'Penthouse', 'Luxury']
     },
     {
@@ -73,7 +73,7 @@ const Portfolio = () => {
       title: 'Tech Startup Office',
       category: 'office',
       description: 'Creative workspace design for a tech startup with collaborative areas and modern amenities.',
-      image: '/api/placeholder/600/400',
+      image: 'https://images.unsplash.com/photo-1541746972996-4e0b0f93e586?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
       tags: ['Office Design', 'Startup', 'Creative']
     },
     {
@@ -81,7 +81,7 @@ const Portfolio = () => {
       title: 'Heritage Bungalow',
       category: 'bungalow',
       description: 'Restoration and modernization of a heritage bungalow preserving its architectural character.',
-      image: '/api/placeholder/600/400',
+      image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80',
       tags: ['Heritage', 'Restoration', 'Architecture']
     }
   ]
@@ -190,12 +190,11 @@ const Portfolio = () => {
                 <div className="glass-effect border border-gold-400/20 rounded-2xl overflow-hidden hover:border-gold-400/40 transition-all duration-500">
                   {/* Project Image */}
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <div className="w-full h-full bg-gradient-to-br from-gold-400/20 to-gold-600/10 flex items-center justify-center">
-                      <div className="text-center">
-                        <ZoomIn className="text-gold-400 mx-auto mb-2" size={40} />
-                        <p className="text-gold-400 font-medium">Project Image</p>
-                      </div>
-                    </div>
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                     
                     {/* Overlay */}
                     <motion.div
