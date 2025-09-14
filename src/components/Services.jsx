@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
+import { Link } from 'react-router-dom'
 import { Palette, Building2, Home, ArrowRight } from 'lucide-react'
 
 const Services = () => {
@@ -29,7 +30,7 @@ const Services = () => {
     return () => ctx.revert()
   }, [])
 
-  const services = [
+const services = [
     {
       icon: Palette,
       title: 'Interior Designer',
@@ -40,7 +41,8 @@ const Services = () => {
         'Space Planning & Layout',
         'Lighting Design'
       ],
-image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+      link: '/interior-design'
     },
     {
       icon: Building2,
@@ -52,7 +54,8 @@ image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.
         'Meeting Room Solutions',
         'Technology Integration'
       ],
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+      link: '/office-design'
     },
     {
       icon: Home,
@@ -64,7 +67,8 @@ image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.
         'Landscape Design',
         'Project Management'
       ],
-      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80'
+      image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80',
+      link: '/bungalow-design'
     }
   ]
 
@@ -174,6 +178,7 @@ image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.
                     transition={{ delay: (index * 0.2) + 0.5 }}
                     className="mt-8"
                   >
+                  <Link to={service.link}>
                     <motion.button
                       whileHover={{ 
                         scale: 1.05,
@@ -185,6 +190,7 @@ image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.
                       Learn More
                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
                     </motion.button>
+                  </Link>
                   </motion.div>
                 </div>
               </div>

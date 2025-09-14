@@ -85,18 +85,13 @@ const About = () => {
             className="relative"
           >
             <div className="relative overflow-hidden rounded-2xl">
-              {/* Placeholder for architect's photo */}
-              <div className="aspect-[4/5] bg-gradient-to-br from-gold-400/20 to-gold-600/10 flex items-center justify-center rounded-2xl border border-gold-400/30">
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 bg-gold-400/30 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Users size={60} className="text-gold-400" />
-                  </div>
-                  <p className="text-gold-400 font-montserrat font-medium">
-                    Professional Photo
-                    <br />
-                    Coming Soon
-                  </p>
-                </div>
+              {/* Professional architect photo */}
+              <div className="aspect-[4/5] rounded-2xl border border-gold-400/30 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                  alt="Arch Taufiq Contractor - Professional Portrait"
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                />
               </div>
               
               {/* Floating Award Badge */}

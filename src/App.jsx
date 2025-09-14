@@ -1,37 +1,24 @@
-import { useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Services from './components/Services'
-import Portfolio from './components/Portfolio'
-import WhyChooseUs from './components/WhyChooseUs'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import Home from './pages/Home'
+import InteriorDesign from './pages/InteriorDesign'
+import OfficeDesign from './pages/OfficeDesign'
+import BungalowDesign from './pages/BungalowDesign'
 
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
-  useEffect(() => {
-    // Initialize GSAP ScrollTrigger
-    ScrollTrigger.refresh()
-  }, [])
-
   return (
-    <div className="App">
-      <Navbar />
-      <Hero />
-      <About />
-      <Services />
-      <Portfolio />
-      <WhyChooseUs />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/interior-design" element={<InteriorDesign />} />
+        <Route path="/office-design" element={<OfficeDesign />} />
+        <Route path="/bungalow-design" element={<BungalowDesign />} />
+      </Routes>
+    </Router>
   )
 }
 
