@@ -88,9 +88,9 @@ const stats = [
               {/* Professional architect photo */}
               <div className="aspect-[4/5] rounded-2xl border border-gold-400/30 overflow-hidden">
 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=800&q=80&crop=face&facepad=4"
+                  src="https://i.postimg.cc/q6QdJJfV/swap-2025-09-14-21-59-31.png"
                   alt="Arch Taufiq Contractor - Professional Portrait"
-                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                 />
               </div>
               
