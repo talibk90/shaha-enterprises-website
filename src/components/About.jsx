@@ -43,10 +43,10 @@ const About = () => {
     return () => ctx.revert()
   }, [])
 
-  const stats = [
-    { icon: Award, number: '15+', label: 'Years Experience' },
-    { icon: Users, number: '500+', label: 'Happy Clients' },
-    { icon: Clock, number: '1000+', label: 'Projects Completed' },
+const stats = [
+    { icon: Award, number: '5+', label: 'Years Experience' },
+    { icon: Users, number: '100+', label: 'Happy Clients' },
+    { icon: Clock, number: '100+', label: 'Projects Completed' },
     { icon: Target, number: '100%', label: 'Client Satisfaction' }
   ]
 
@@ -88,7 +88,7 @@ const About = () => {
               {/* Professional architect photo */}
               <div className="aspect-[4/5] rounded-2xl border border-gold-400/30 overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=1000&q=80&crop=faces&facepad=2"
                   alt="Arch Taufiq Contractor - Professional Portrait"
                   className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
                 />
@@ -126,7 +126,7 @@ const About = () => {
               </p>
               <div className="space-y-4 text-gray-300 font-lato leading-relaxed">
                 <p>
-                  With over 15 years of architectural excellence, Arch Taufiq Contractor has been 
+                  With over 5 years of architectural excellence, Arch Taufiq Contractor has been 
                   transforming visions into breathtaking realities. His expertise spans luxury 
                   residential projects, commercial spaces, and bespoke interior designs.
                 </p>

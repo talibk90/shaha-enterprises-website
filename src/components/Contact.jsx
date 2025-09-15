@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
+import emailjs from '@emailjs/browser'
 import { MapPin, Phone, Mail, Clock, Send, User, MessageSquare } from 'lucide-react'
 
 const Contact = () => {
@@ -11,12 +12,17 @@ const Contact = () => {
     service: '',
     message: ''
   })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState('')
   const sectionRef = useRef(null)
   const formRef = useRef(null)
   const infoRef = useRef(null)
+  const emailFormRef = useRef(null)
 
-  useEffect(() => {
+useEffect(() => {
+    // Initialize EmailJS
+    emailjs.init('YOUR_PUBLIC_KEY') // You'll need to replace this with your actual EmailJS public key
+    
     const ctx = gsap.context(() => {
       gsap.fromTo(formRef.current,
         { x: -100, opacity: 0 },
@@ -59,27 +65,39 @@ const Contact = () => {
     }))
   }
 
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setSubmitStatus('')
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData)
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    })
+    try {
+      // Send email using EmailJS
+      const result = await emailjs.sendForm(
+        'service_shaha', // Replace with your EmailJS service ID
+        'template_shaha', // Replace with your EmailJS template ID
+        emailFormRef.current,
+        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      )
+      
+      console.log('Email sent successfully:', result.text)
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      })
+      
+      setSubmitStatus('success')
+      
+    } catch (error) {
+      console.error('Email send failed:', error)
+      setSubmitStatus('error')
+    }
     
     setIsSubmitting(false)
-    alert('Thank you for your message! We will get back to you soon.')
   }
 
   const contactInfo = [
@@ -161,7 +179,7 @@ const Contact = () => {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+<form ref={emailFormRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-gold-400 font-medium mb-2">
@@ -264,8 +282,29 @@ const Contact = () => {
                     <Send size={20} />
                     Send Message
                   </>
-                )}
+)}
               </motion.button>
+              
+              {/* Status Message */}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400 text-center"
+                >
+                  ✅ Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                </motion.div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-4 p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-400 text-center"
+                >
+                  ❌ Sorry, there was an error sending your message. Please try again or contact us directly.
+                </motion.div>
+              )}
             </form>
           </motion.div>
 

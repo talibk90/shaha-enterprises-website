@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +19,27 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [scrolled])
+}, [scrolled])
+
+  const handleNavigation = (href, name) => {
+    if (location.pathname !== '/') {
+      // If not on home page, navigate to home first
+      navigate('/')
+      // Wait a bit for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.querySelector(href)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      // If on home page, just scroll to section
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -46,23 +69,26 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="flex-shrink-0"
           >
-            <a href="#home" className="text-2xl font-montserrat font-bold text-gradient">
+<button 
+              onClick={() => handleNavigation('#home', 'Home')}
+              className="text-2xl font-montserrat font-bold text-gradient"
+            >
               Shaha Enterprises
-            </a>
+            </button>
           </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map((item) => (
-                <motion.a
+{navItems.map((item) => (
+                <motion.button
                   key={item.name}
-                  href={item.href}
+                  onClick={() => handleNavigation(item.href, item.name)}
                   whileHover={{ scale: 1.1, textShadow: '0 0 10px rgba(212, 160, 23, 0.8)' }}
                   className="text-white hover:text-gold-400 px-3 py-2 rounded-md text-sm font-medium font-lato transition-colors duration-200"
                 >
                   {item.name}
-                </motion.a>
+                </motion.button>
               ))}
             </div>
           </div>
@@ -92,16 +118,18 @@ const Navbar = () => {
         className="md:hidden overflow-hidden glass-effect"
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          {navItems.map((item) => (
-            <motion.a
+{navItems.map((item) => (
+            <motion.button
               key={item.name}
-              href={item.href}
+              onClick={() => {
+                handleNavigation(item.href, item.name)
+                setIsOpen(false)
+              }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium font-lato transition-colors duration-200"
+              className="text-white hover:text-gold-400 block px-3 py-2 rounded-md text-base font-medium font-lato transition-colors duration-200 w-full text-left"
             >
               {item.name}
-            </motion.a>
+            </motion.button>
           ))}
         </div>
       </motion.div>
