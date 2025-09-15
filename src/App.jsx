@@ -11,14 +11,16 @@ gsap.registerPlugin(ScrollTrigger)
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/interior-design" element={<InteriorDesign />} />
-        <Route path="/office-design" element={<OfficeDesign />} />
-        <Route path="/bungalow-design" element={<BungalowDesign />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/interior-design" element={<InteriorDesign />} />
+          <Route path="/office-design" element={<OfficeDesign />} />
+          <Route path="/bungalow-design" element={<BungalowDesign />} />
+        </Routes>
+      </Router>
+    </div>
   )
 }
 
