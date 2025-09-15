@@ -20,8 +20,8 @@ const [isSubmitting, setIsSubmitting] = useState(false)
   const emailFormRef = useRef(null)
 
 useEffect(() => {
-    // Initialize EmailJS
-    emailjs.init('YOUR_PUBLIC_KEY') // You'll need to replace this with your actual EmailJS public key
+    // Initialize EmailJS - Replace with your actual EmailJS public key
+    // emailjs.init('YOUR_PUBLIC_KEY')
     
     const ctx = gsap.context(() => {
       gsap.fromTo(formRef.current,
@@ -71,15 +71,21 @@ const handleSubmit = async (e) => {
     setSubmitStatus('')
     
     try {
-      // Send email using EmailJS
+      // For now, simulate form submission without EmailJS
+      // Uncomment and configure the following when EmailJS is set up:
+      /*
       const result = await emailjs.sendForm(
-        'service_shaha', // Replace with your EmailJS service ID
-        'template_shaha', // Replace with your EmailJS template ID
+        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
+        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
         emailFormRef.current,
         'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
       )
+      */
       
-      console.log('Email sent successfully:', result.text)
+      // Simulate successful submission
+      await new Promise(resolve => setTimeout(resolve, 1000))
+      
+      console.log('Form submitted successfully (simulated)')
       
       // Reset form
       setFormData({

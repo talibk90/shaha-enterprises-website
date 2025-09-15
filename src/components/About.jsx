@@ -87,10 +87,10 @@ const stats = [
             <div className="relative overflow-hidden rounded-2xl">
               {/* Professional architect photo */}
               <div className="aspect-[4/5] rounded-2xl border border-gold-400/30 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=1000&q=80&crop=faces&facepad=2"
+<img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=800&q=80&crop=face&facepad=4"
                   alt="Arch Taufiq Contractor - Professional Portrait"
-                  className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                 />
               </div>
               

@@ -209,9 +209,9 @@ const WhyChooseUs = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { number: '15+', label: 'Years Experience' },
-                { number: '500+', label: 'Happy Clients' },
-                { number: '1000+', label: 'Projects Delivered' },
+                { number: '5+', label: 'Years Experience' },
+                { number: '100+', label: 'Happy Clients' },
+                { number: '100+', label: 'Projects Delivered' },
                 { number: '100%', label: 'Client Satisfaction' }
               ].map((stat, index) => (
                 <motion.div
