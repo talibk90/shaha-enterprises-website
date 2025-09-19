@@ -21,7 +21,7 @@ const [isSubmitting, setIsSubmitting] = useState(false)
 
 useEffect(() => {
     // Initialize EmailJS with environment variable
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'RtFg2K8tPdnf9nLqI'
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'm10GcxU5oAwH_8Xac'
     emailjs.init(publicKey)
     
     const ctx = gsap.context(() => {
@@ -73,9 +73,9 @@ const handleSubmit = async (e) => {
     
     try {
       // Get environment variables with fallbacks
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_f8y9qps'
-      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_5hs3w7q'
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'RtFg2K8tPdnf9nLqI'
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_qn4kgom'
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_k86ihbq'
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'm10GcxU5oAwH_8Xac'
       
       // Create template parameters to ensure the email goes to your address
       const templateParams = {
@@ -99,6 +99,11 @@ const handleSubmit = async (e) => {
       )
       
       console.log('Email sent successfully:', result)
+      console.log('EmailJS Configuration used:', {
+        serviceId,
+        templateId,
+        publicKey: publicKey.substring(0, 5) + '***'
+      })
       
       // Reset form
       setFormData({
@@ -116,7 +121,13 @@ const handleSubmit = async (e) => {
       console.error('Error details:', {
         text: error.text,
         status: error.status,
-        message: error.message
+        message: error.message,
+        name: error.name
+      })
+      console.error('EmailJS Configuration used:', {
+        serviceId,
+        templateId,
+        publicKey: publicKey.substring(0, 5) + '***'
       })
       setSubmitStatus('error')
     }
