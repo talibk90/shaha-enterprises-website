@@ -88,11 +88,11 @@ const stats = [
               {/* Professional architect photo */}
               <div className="aspect-[4/5] rounded-2xl border border-gold-400/30 overflow-hidden">
                 <img 
-                  src="https://i.postimg.cc/q6QdJJfV/swap-2025-09-14-21-59-31.png"
+                  src="https://raw.githubusercontent.com/talibk90/git-basic/main/MainPage.png"
                   alt="Arch Taufiq Contractor - Professional Portrait"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                   style={{ 
-                    objectPosition: 'center 15%',
+                    objectPosition: 'center center',
                     imageRendering: 'crisp-edges',
                     filter: 'contrast(1.1) brightness(1.05)'
                   }}

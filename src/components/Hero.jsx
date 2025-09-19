@@ -90,9 +90,9 @@ const Hero = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        background: `linear-gradient(135deg, rgba(11, 11, 14, 0.6), rgba(17, 17, 20, 0.7)), url('https://i.postimg.cc/q6QdJJfV/swap-2025-09-14-21-59-31.png')`,
+        background: `linear-gradient(135deg, rgba(11, 11, 14, 0.6), rgba(17, 17, 20, 0.7)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center top',
+        backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         imageRendering: 'crisp-edges'

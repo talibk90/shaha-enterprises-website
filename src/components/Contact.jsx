@@ -14,6 +14,7 @@ const Contact = () => {
   })
 const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState('')
+  
   const sectionRef = useRef(null)
   const formRef = useRef(null)
   const infoRef = useRef(null)
@@ -21,7 +22,7 @@ const [isSubmitting, setIsSubmitting] = useState(false)
 
 useEffect(() => {
     // Initialize EmailJS with environment variable
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'm10GcxU5oAwH_8Xac'
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'yLqv1-MHC8AMOpxPJ'
     emailjs.init(publicKey)
     
     const ctx = gsap.context(() => {
@@ -71,32 +72,56 @@ const handleSubmit = async (e) => {
     setIsSubmitting(true)
     setSubmitStatus('')
     
+    // Add timeout to prevent infinite loading
+    const timeoutId = setTimeout(() => {
+      setIsSubmitting(false)
+      setSubmitStatus('error')
+      console.error('EmailJS request timed out after 30 seconds')
+    }, 30000) // 30 second timeout
+    
     try {
       // Get environment variables with fallbacks
-      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_qn4kgom'
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_silceum'
       const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_k86ihbq'
-      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'm10GcxU5oAwH_8Xac'
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'yLqv1-MHC8AMOpxPJ'
       
-      // Create template parameters to ensure the email goes to your address
+      // Use exact parameters that match your EmailJS template
       const templateParams = {
-        to_email: 'taufeeqk217@gmail.com', // Your email address
         from_name: formData.name,
         from_email: formData.email,
         phone: formData.phone,
         service: formData.service,
-        message: formData.message,
-        reply_to: formData.email,
-        // Additional parameters for better organization
-        subject: `New Contact Form Submission - ${formData.service}`,
+        message: formData.message
       }
       
-      // Send email using EmailJS with template parameters
-      const result = await emailjs.send(
+      // Debug logging
+      console.log('About to send email with:', {
         serviceId,
         templateId,
-        templateParams,
-        publicKey
-      )
+        publicKey: publicKey.substring(0, 5) + '***',
+        templateParams
+      })
+      
+      // Send email using EmailJS with template parameters
+      let result
+      try {
+        // Try the send method first
+        result = await emailjs.send(
+          serviceId,
+          templateId,
+          templateParams,
+          publicKey
+        )
+      } catch (sendError) {
+        console.warn('Send method failed, trying sendForm method:', sendError)
+        // Fallback to sendForm method
+        result = await emailjs.sendForm(
+          serviceId,
+          templateId,
+          emailFormRef.current,
+          publicKey
+        )
+      }
       
       console.log('Email sent successfully:', result)
       console.log('EmailJS Configuration used:', {
@@ -115,8 +140,10 @@ const handleSubmit = async (e) => {
       })
       
       setSubmitStatus('success')
+      clearTimeout(timeoutId) // Clear timeout on success
       
     } catch (error) {
+      clearTimeout(timeoutId) // Clear timeout on error
       console.error('Email send failed:', error)
       console.error('Error details:', {
         text: error.text,
