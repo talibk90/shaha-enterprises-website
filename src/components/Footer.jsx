@@ -13,22 +13,22 @@ import {
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Why Choose Us', href: '#why-choose-us' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '/#home' },
+    { name: 'About', href: '/#about' },
+    { name: 'Services', href: '/#services' },
+    { name: 'Portfolio', href: '/#portfolio' },
+    { name: 'Why Choose Us', href: '/#why-choose-us' },
+    { name: 'Testimonials', href: '/#testimonials' },
+    { name: 'Contact', href: '/#contact' }
   ]
 
   const services = [
-    { name: 'Interior Design', href: '#services' },
-    { name: 'Office Design', href: '#services' },
-    { name: 'Bungalow Design', href: '#services' },
-    { name: 'Architectural Planning', href: '#services' },
-    { name: 'Project Consultation', href: '#contact' },
-    { name: 'Design Services', href: '#services' }
+    { name: 'Interior Design', href: '/#services' },
+    { name: 'Office Design', href: '/#services' },
+    { name: 'Bungalow Design', href: '/#services' },
+    { name: 'Architectural Planning', href: '/#services' },
+    { name: 'Project Consultation', href: '/#contact' },
+    { name: 'Design Services', href: '/#services' }
   ]
 
   const socialLinks = [
@@ -72,7 +72,7 @@ const Footer = () => {
     {
       icon: MapPin,
       text: 'Near Jupiter Hospital, Baner, Pune',
-      href: '#contact'
+      href: '/#contact'
     }
   ]
 

@@ -90,10 +90,12 @@ const Hero = () => {
       ref={heroRef}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        background: `linear-gradient(135deg, rgba(11, 11, 14, 0.7), rgba(17, 17, 20, 0.8)), url('https://i.postimg.cc/q6QdJJfV/swap-2025-09-14-21-59-31.png')`,
+        background: `linear-gradient(135deg, rgba(11, 11, 14, 0.6), rgba(17, 17, 20, 0.7)), url('https://i.postimg.cc/q6QdJJfV/swap-2025-09-14-21-59-31.png')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center center',
-        backgroundRepeat: 'no-repeat'
+        backgroundPosition: 'center top',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        imageRendering: 'crisp-edges'
       }}
     >
       {/* Animated Background Particles */}

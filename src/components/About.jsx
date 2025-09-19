@@ -90,8 +90,12 @@ const stats = [
                 <img 
                   src="https://i.postimg.cc/q6QdJJfV/swap-2025-09-14-21-59-31.png"
                   alt="Arch Taufiq Contractor - Professional Portrait"
-                  className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
-                  style={{ objectPosition: 'center 20%' }}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  style={{ 
+                    objectPosition: 'center 15%',
+                    imageRendering: 'crisp-edges',
+                    filter: 'contrast(1.1) brightness(1.05)'
+                  }}
                 />
               </div>
               

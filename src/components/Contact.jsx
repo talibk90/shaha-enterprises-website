@@ -20,8 +20,9 @@ const [isSubmitting, setIsSubmitting] = useState(false)
   const emailFormRef = useRef(null)
 
 useEffect(() => {
-    // Initialize EmailJS with actual public key
-    emailjs.init('RtFg2K8tPdnf9nLqI')
+    // Initialize EmailJS with environment variable
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'RtFg2K8tPdnf9nLqI'
+    emailjs.init(publicKey)
     
     const ctx = gsap.context(() => {
       gsap.fromTo(formRef.current,
@@ -71,15 +72,33 @@ const handleSubmit = async (e) => {
     setSubmitStatus('')
     
     try {
-      // Send email using EmailJS
-      const result = await emailjs.sendForm(
-        'service_f8y9qps', // EmailJS service ID
-        'template_5hs3w7q', // EmailJS template ID
-        emailFormRef.current,
-        'RtFg2K8tPdnf9nLqI' // EmailJS public key
+      // Get environment variables with fallbacks
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_f8y9qps'
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_5hs3w7q'
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'RtFg2K8tPdnf9nLqI'
+      
+      // Create template parameters to ensure the email goes to your address
+      const templateParams = {
+        to_email: 'taufeeqk217@gmail.com', // Your email address
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message,
+        reply_to: formData.email,
+        // Additional parameters for better organization
+        subject: `New Contact Form Submission - ${formData.service}`,
+      }
+      
+      // Send email using EmailJS with template parameters
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
       )
       
-      console.log('Email sent successfully:', result.text)
+      console.log('Email sent successfully:', result)
       
       // Reset form
       setFormData({
@@ -94,6 +113,11 @@ const handleSubmit = async (e) => {
       
     } catch (error) {
       console.error('Email send failed:', error)
+      console.error('Error details:', {
+        text: error.text,
+        status: error.status,
+        message: error.message
+      })
       setSubmitStatus('error')
     }
     
@@ -302,7 +326,7 @@ const handleSubmit = async (e) => {
                   animate={{ opacity: 1, y: 0 }}
                   className="mt-4 p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-400 text-center"
                 >
-                  ❌ Sorry, there was an error sending your message. Please try again or contact us directly.
+                  ❌ Sorry, there was an error sending your message. Please try again or contact us directly at <a href="mailto:taufeeqk217@gmail.com" className="text-red-300 underline">taufeeqk217@gmail.com</a> or call <a href="tel:+918874820930" className="text-red-300 underline">+91 8874820930</a>.
                 </motion.div>
               )}
             </form>
