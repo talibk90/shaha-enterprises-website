@@ -156,31 +156,41 @@ const Hero = () => {
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
-          <motion.a
-            href="#portfolio"
+          <motion.button
+            onClick={() => {
+              const portfolioSection = document.getElementById('portfolio')
+              if (portfolioSection) {
+                portfolioSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }
+            }}
             whileHover={{ 
               scale: 1.05, 
               boxShadow: '0 0 30px rgba(212, 160, 23, 0.5)' 
             }}
             whileTap={{ scale: 0.95 }}
-            className="gold-gradient text-dark-900 px-8 py-4 rounded-full font-montserrat font-semibold text-lg flex items-center gap-3 transition-all duration-300 hover:shadow-glow"
+            className="gold-gradient text-dark-900 px-8 py-4 rounded-full font-montserrat font-semibold text-lg flex items-center gap-3 transition-all duration-300 hover:shadow-glow cursor-pointer"
           >
             Explore Our Work
             <ArrowRight size={20} />
-          </motion.a>
+          </motion.button>
 
-          <motion.a
-            href="#contact"
+          <motion.button
+            onClick={() => {
+              const contactSection = document.getElementById('contact')
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+              }
+            }}
             whileHover={{ 
               scale: 1.05,
               borderColor: 'rgba(212, 160, 23, 1)'
             }}
             whileTap={{ scale: 0.95 }}
-            className="border-2 border-gold-400 text-gold-400 px-8 py-4 rounded-full font-montserrat font-semibold text-lg flex items-center gap-3 transition-all duration-300 hover:bg-gold-400 hover:text-dark-900"
+            className="border-2 border-gold-400 text-gold-400 px-8 py-4 rounded-full font-montserrat font-semibold text-lg flex items-center gap-3 transition-all duration-300 hover:bg-gold-400 hover:text-dark-900 cursor-pointer"
           >
             <Play size={20} />
             Get Consultation
-          </motion.a>
+          </motion.button>
         </motion.div>
 
         {/* Scroll Indicator */}

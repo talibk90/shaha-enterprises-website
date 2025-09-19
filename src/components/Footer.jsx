@@ -12,23 +12,30 @@ import {
 } from 'lucide-react'
 
 const Footer = () => {
+  // Smooth scroll function
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
   const quickLinks = [
-    { name: 'Home', href: '/#home' },
-    { name: 'About', href: '/#about' },
-    { name: 'Services', href: '/#services' },
-    { name: 'Portfolio', href: '/#portfolio' },
-    { name: 'Why Choose Us', href: '/#why-choose-us' },
-    { name: 'Testimonials', href: '/#testimonials' },
-    { name: 'Contact', href: '/#contact' }
+    { name: 'Home', sectionId: 'home' },
+    { name: 'About', sectionId: 'about' },
+    { name: 'Services', sectionId: 'services' },
+    { name: 'Portfolio', sectionId: 'portfolio' },
+    { name: 'Why Choose Us', sectionId: 'why-choose-us' },
+    { name: 'Testimonials', sectionId: 'testimonials' },
+    { name: 'Contact', sectionId: 'contact' }
   ]
 
   const services = [
-    { name: 'Interior Design', href: '/#services' },
-    { name: 'Office Design', href: '/#services' },
-    { name: 'Bungalow Design', href: '/#services' },
-    { name: 'Architectural Planning', href: '/#services' },
-    { name: 'Project Consultation', href: '/#contact' },
-    { name: 'Design Services', href: '/#services' }
+    { name: 'Interior Design', sectionId: 'services' },
+    { name: 'Office Design', sectionId: 'services' },
+    { name: 'Bungalow Design', sectionId: 'services' },
+    { name: 'Architectural Planning', sectionId: 'services' },
+    { name: 'Project Consultation', sectionId: 'contact' },
+    { name: 'Design Services', sectionId: 'services' }
   ]
 
   const socialLinks = [
@@ -145,17 +152,17 @@ const Footer = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
                   >
-                    <motion.a
-                      href={link.href}
+                    <motion.button
+                      onClick={() => scrollToSection(link.sectionId)}
                       whileHover={{ x: 5 }}
-                      className="text-gray-300 hover:text-gold-400 transition-all duration-300 flex items-center group text-sm"
+                      className="text-gray-300 hover:text-gold-400 transition-all duration-300 flex items-center group text-sm cursor-pointer bg-transparent border-none p-0"
                     >
                       <ArrowRight 
                         size={14} 
                         className="mr-2 text-gold-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
                       />
                       {link.name}
-                    </motion.a>
+                    </motion.button>
                   </motion.li>
                 ))}
               </ul>
@@ -178,17 +185,17 @@ const Footer = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
                   >
-                    <motion.a
-                      href={service.href}
+                    <motion.button
+                      onClick={() => scrollToSection(service.sectionId)}
                       whileHover={{ x: 5 }}
-                      className="text-gray-300 hover:text-gold-400 transition-all duration-300 flex items-center group text-sm"
+                      className="text-gray-300 hover:text-gold-400 transition-all duration-300 flex items-center group text-sm cursor-pointer bg-transparent border-none p-0"
                     >
                       <ArrowRight 
                         size={14} 
                         className="mr-2 text-gold-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
                       />
                       {service.name}
-                    </motion.a>
+                    </motion.button>
                   </motion.li>
                 ))}
               </ul>
