@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap Location
-Sitemap: https://talibk90.github.io/shaha-enterprises-website/sitemap.xml
+Sitemap: https://www.shahaenterprises.com/sitemap.xml
 
 # Specific instructions for major search engines
 User-agent: Googlebot
