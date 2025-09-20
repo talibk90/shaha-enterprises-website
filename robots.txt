@@ -52,4 +52,4 @@ User-agent: DotBot
 Disallow: /
 
 # Additional optimization
-Host: https://talibk90.github.io
+https://shahaenterprises.com/sitemap.xml
